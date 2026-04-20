@@ -29,7 +29,11 @@ export default function Catalogo() {
 
   const filtrado = useMemo(() => {
     return catalogo.filter((item) => {
-      const cumpleTexto = !busqueda || (item.nombre || '').toLowerCase().includes(busqueda.toLowerCase())
+      const q = busqueda.toLowerCase()
+      const cumpleTexto = !busqueda ||
+        (item.nombre || '').toLowerCase().includes(q) ||
+        (item.sku || '').toLowerCase().includes(q) ||
+        (item.proveedor || '').toLowerCase().includes(q)
       const cumpleCategoria = !categoria || item.categoria === categoria
       const cumpleProveedor = !proveedor || item.proveedor === proveedor
       return cumpleTexto && cumpleCategoria && cumpleProveedor
