@@ -18,7 +18,7 @@ export default function Catalogo() {
 
   useEffect(() => {
     supabase
-      .from('vista_catalogo_proveedores')
+      .from('catalogo_proveedores')
       .select('*')
       .order('nombre', { ascending: true })
       .then(({ data }) => { setCatalogo(data || []); setLoading(false) })
