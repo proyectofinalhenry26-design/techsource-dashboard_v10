@@ -4,6 +4,7 @@ import { supabase } from './supabase'
 
 import PublicNavbar from './components/PublicNavbar'
 import AdminNavbar from './components/AdminNavbar'
+import ChatWidget from './components/ChatWidget'
 
 import LoginCliente from './pages/LoginCliente'
 import LoginAdmin from './pages/LoginAdmin'
@@ -34,6 +35,7 @@ function PublicLayout({ session, clienteSession, adminVerificado, onClienteLogou
         <Outlet context={{ session, clienteSession }} />
       </div>
       <Footer />
+      <ChatWidget clienteSession={clienteSession} />
     </div>
   )
 }
