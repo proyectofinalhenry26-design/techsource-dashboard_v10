@@ -5,6 +5,7 @@ import { supabase } from './supabase'
 import PublicNavbar from './components/PublicNavbar'
 import AdminNavbar from './components/AdminNavbar'
 import ChatWidget from './components/ChatWidget'
+import AdminBot from './components/AdminBot'
 
 import LoginCliente from './pages/LoginCliente'
 import LoginAdmin from './pages/LoginAdmin'
@@ -47,6 +48,7 @@ function AdminLayout({ session }) {
       <div className="admin-content">
         <Outlet context={{ session }} />
       </div>
+      <AdminBot />
     </div>
   )
 }

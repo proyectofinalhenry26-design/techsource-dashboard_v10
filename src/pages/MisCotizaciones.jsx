@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { supabase } from '../supabase'
 import Table from '../components/Table'
 import Modal from '../components/Modal'
@@ -81,6 +82,7 @@ export default function MisCotizaciones({ clienteSession }) {
       <section className="card" style={{ marginBottom: 14 }}>
         <h1 className="page-title">Mis Cotizaciones</h1>
         <p className="page-subtitle">{cotizaciones.length} cotización(es) registradas</p>
+        <Link to="/cotizar" className="btn-cotizar-mobile">+ Solicitar Cotización</Link>
       </section>
 
       <section className="card">

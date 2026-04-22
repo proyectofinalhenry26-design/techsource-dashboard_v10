@@ -47,6 +47,7 @@ export default function CatalogoPublico() {
         <div>
           <h1>Catálogo de Productos</h1>
           <p>Explorá nuestra oferta y solicitá una cotización personalizada al instante.</p>
+          <Link to="/cotizar" className="btn-cotizar-mobile">+ Solicitar Cotización</Link>
         </div>
       </section>
 

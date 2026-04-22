@@ -61,16 +61,19 @@ export default function AdminNavbar() {
             <span>◔</span>
             <span>Sync: {syncText}</span>
           </div>
-<button className="admin-logout-btn" onClick={handleLogout} title="Salir">⏻</button>
+          <button className="admin-logout-btn" onClick={handleLogout} title="Salir">⏻</button>
         </div>
 
-        <button
-          className="admin-hamburger"
-          onClick={() => setMenuAbierto((v) => !v)}
-          aria-label="Menú"
-        >
-          <span /><span /><span />
-        </button>
+        <div className="admin-mobile-actions">
+          <button className="admin-logout-btn" onClick={handleLogout} title="Salir">⏻</button>
+          <button
+            className="admin-hamburger"
+            onClick={() => setMenuAbierto((v) => !v)}
+            aria-label="Menú"
+          >
+            <span /><span /><span />
+          </button>
+        </div>
       </header>
 
       {menuAbierto && (
