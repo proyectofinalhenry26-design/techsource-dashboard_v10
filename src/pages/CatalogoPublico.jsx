@@ -34,7 +34,7 @@ export default function CatalogoPublico() {
   }, [])
 
   const categorias = useMemo(() =>
-    [...new Set(catalogo.map(x => x.categoria).filter(Boolean))].sort(), [catalogo])
+    [...new Set(catalogo.map(x => x.categoria?.trim()).filter(Boolean))].sort(), [catalogo])
 
   const marcas = useMemo(() =>
     [...new Set(catalogo.map(x => x.proveedor).filter(Boolean))], [catalogo])
@@ -52,7 +52,7 @@ export default function CatalogoPublico() {
         (item.nombre || '').toLowerCase().includes(q) ||
         (item.sku || '').toLowerCase().includes(q) ||
         (item.categoria || '').toLowerCase().includes(q)
-      return ok && (!categoria || item.categoria === categoria)
+      return ok && (!categoria || (item.categoria?.trim() ?? '') === categoria)
     })
     if (sortBy === 'precio-asc') return [...result].sort((a, b) => (a.precio_venta || 0) - (b.precio_venta || 0))
     if (sortBy === 'precio-desc') return [...result].sort((a, b) => (b.precio_venta || 0) - (a.precio_venta || 0))
