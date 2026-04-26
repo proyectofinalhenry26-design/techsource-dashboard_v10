@@ -16,10 +16,12 @@ export default function AdminBot() {
   const [historial, setHistorial] = useState([])
   const [input, setInput]         = useState('')
   const [cargando, setCargando]   = useState(false)
-  const [notif, setNotif]         = useState(false)
-  const [iniciado, setIniciado]   = useState(false)
+  const [notif, setNotif]           = useState(false)
+  const [iniciado, setIniciado]     = useState(false)
+  const [escuchando, setEscuchando] = useState(false)
   const msgsRef  = useRef(null)
   const inputRef = useRef(null)
+  const reconRef = useRef(null)
 
   useEffect(() => {
     if (msgsRef.current) msgsRef.current.scrollTop = msgsRef.current.scrollHeight
@@ -59,6 +61,58 @@ export default function AdminBot() {
       '¿Qué necesitas consultar?'
     ), 200)
   }
+
+  // ── VOZ ──────────────────────────────────────────────────
+  function toggleMic() {
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      alert('Tu navegador no soporta reconocimiento de voz. Usá Chrome o Edge.')
+      return
+    }
+    if (escuchando) {
+      reconRef.current?.stop()
+    } else {
+      iniciarMic()
+    }
+  }
+
+  function iniciarMic() {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition
+    const rec = new SR()
+    rec.lang = 'es-ES'
+    rec.continuous = false
+    rec.interimResults = true
+    reconRef.current = rec
+
+    rec.onstart = () => {
+      setEscuchando(true)
+      if (inputRef.current) inputRef.current.placeholder = 'Escuchando...'
+    }
+
+    rec.onresult = (e) => {
+      const transcript = Array.from(e.results).map(r => r[0].transcript).join('')
+      setInput(transcript)
+    }
+
+    rec.onend = () => {
+      setEscuchando(false)
+      if (inputRef.current) inputRef.current.placeholder = 'Consulta datos del negocio...'
+      setTimeout(() => {
+        setInput((val) => {
+          if (val.trim()) enviar(val.trim())
+          return val
+        })
+      }, 300)
+    }
+
+    rec.onerror = (e) => {
+      setEscuchando(false)
+      if (inputRef.current) inputRef.current.placeholder = 'Consulta datos del negocio...'
+      if (e.error === 'not-allowed') alert('Permiso de micrófono denegado. Activalo en la configuración del navegador.')
+    }
+
+    rec.start()
+  }
+  // ─────────────────────────────────────────────────────────
 
   async function enviar(textoForzado) {
     if (cargando) return
@@ -167,6 +221,20 @@ export default function AdminBot() {
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={(e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar() } }}
           />
+          <button
+            className={`adminbot-mic${escuchando ? ' escuchando' : ''}`}
+            onClick={toggleMic}
+            title={escuchando ? 'Detener' : 'Hablar'}
+            disabled={cargando}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none"
+              stroke={escuchando ? '#E74C3C' : '#64748b'} strokeWidth="2">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </button>
           <button className="adminbot-send" onClick={() => enviar()} disabled={cargando || !input.trim()}>
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
               <line x1="22" y1="2" x2="11" y2="13"/>
