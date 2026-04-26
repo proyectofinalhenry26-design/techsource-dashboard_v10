@@ -3190,13 +3190,15 @@ h2 {
 /* ── Banner ──────────────────────────────────────────────────── */
 .catalogo-banner {
   position: relative;
-  overflow: hidden;
+  /* overflow: clip en lugar de hidden: mantiene border-radius pero NO bloquea
+     el scroll de elementos hijos (como los pills con overflow-x: auto) */
+  overflow: clip;
   background:
     linear-gradient(to right, #0C2D48 55%, transparent 85%),
     url('/banner-catalogo.png') right center / contain no-repeat,
     #0C2D48;
   border-radius: 16px;
-  padding: 20px 32px 18px;
+  padding: 20px 16px 18px 32px;
   margin-bottom: 10px;
   display: flex;
   align-items: center;
@@ -3207,8 +3209,10 @@ h2 {
 .catalogo-banner-left {
   position: relative;
   z-index: 1;
-  flex: 1;
-  max-width: 560px;
+  /* 60% del banner: cubre hasta donde llega el gradiente oscuro */
+  flex: 0 0 60%;
+  min-width: 0;
+  overflow: visible;
 }
 
 /* Badge "Catálogo actualizado" */
@@ -3320,18 +3324,21 @@ h2 {
   box-shadow: 0 8px 20px rgba(47, 111, 237, 0.4);
 }
 
-/* Pills de categoría (fondo blanco, texto oscuro, una sola línea) */
+/* Pills: una sola línea con scroll invisible */
 .catalogo-pills {
   display: flex;
   flex-wrap: nowrap;
   gap: 7px;
   overflow-x: auto;
+  overflow-y: visible;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  padding-bottom: 1px;
 }
 
 .catalogo-pills::-webkit-scrollbar {
   display: none;
+  height: 0;
 }
 
 .catalogo-pill {
