@@ -3186,48 +3186,23 @@ h2 {
 .catalogo-banner {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(130deg, #07112b 0%, #0e2148 45%, #163670 100%);
+  background:
+    linear-gradient(to right, #0C2D48 50%, transparent 85%),
+    url('/banner-catalogo.png') right center / contain no-repeat,
+    #0C2D48;
   border-radius: 22px;
   padding: 44px 52px 40px;
   margin-bottom: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
   min-height: 280px;
-}
-
-.catalogo-banner::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at 75% 50%, rgba(47, 111, 237, 0.22) 0%, transparent 55%),
-    radial-gradient(ellipse at 10% 80%, rgba(15, 40, 100, 0.4) 0%, transparent 40%);
-  pointer-events: none;
 }
 
 .catalogo-banner-left {
   position: relative;
   z-index: 1;
   flex: 1;
-  max-width: 600px;
-}
-
-.catalogo-banner-right {
-  position: relative;
-  z-index: 1;
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.catalogo-banner-img {
-  height: 220px;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 12px 28px rgba(0, 0, 0, 0.45));
+  max-width: 580px;
 }
 
 .catalogo-badge {
@@ -3622,13 +3597,12 @@ h2 {
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .catalogo-banner {
-    flex-direction: column;
+    background:
+      linear-gradient(to right, #0C2D48 60%, transparent 95%),
+      url('/banner-catalogo.png') right center / contain no-repeat,
+      #0C2D48;
     padding: 28px 24px 30px;
     min-height: unset;
-  }
-
-  .catalogo-banner-right {
-    display: none;
   }
 
   .catalogo-banner-title {
@@ -3642,6 +3616,7 @@ h2 {
 
 @media (max-width: 640px) {
   .catalogo-banner {
+    background: #0C2D48;
     padding: 22px 18px 24px;
   }
 

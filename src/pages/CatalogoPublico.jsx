@@ -146,10 +146,6 @@ export default function CatalogoPublico() {
             ))}
           </div>
         </div>
-
-        <div className="catalogo-banner-right">
-          <img src="/banner-catalogo.png" alt="Productos TechSource" className="catalogo-banner-img" />
-        </div>
       </section>
 
       {/* ── STATS ──────────────────────────────────────────────── */}
