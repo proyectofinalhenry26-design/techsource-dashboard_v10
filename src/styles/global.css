@@ -3182,9 +3182,12 @@ h2 {
    CATÁLOGO PÚBLICO — REDISEÑO
    ══════════════════════════════════════════════════════════════ */
 
-/* Contenedor del catálogo: 24px de margen a cada lado, max 1100px */
+/* Contenedor del catálogo: 95% del viewport con max 1400px */
 .catalogo-page {
-  width: min(1100px, calc(100% - 48px));
+  width: 95%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* ── Banner ──────────────────────────────────────────────────── */
@@ -3209,8 +3212,8 @@ h2 {
 .catalogo-banner-left {
   position: relative;
   z-index: 1;
-  /* 60% del banner: cubre hasta donde llega el gradiente oscuro */
-  flex: 0 0 60%;
+  /* 55% del banner: garantiza que filtros y buscador no queden detrás de la imagen */
+  flex: 0 0 55%;
   min-width: 0;
   overflow: visible;
 }
