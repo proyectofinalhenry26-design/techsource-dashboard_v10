@@ -3182,9 +3182,9 @@ h2 {
    CATÁLOGO PÚBLICO — REDISEÑO
    ══════════════════════════════════════════════════════════════ */
 
-/* Contenedor ancho para el catálogo: 24px de margen a cada lado */
+/* Contenedor del catálogo: 24px de margen a cada lado, max 1100px */
 .catalogo-page {
-  width: min(1400px, calc(100% - 48px));
+  width: min(1100px, calc(100% - 48px));
 }
 
 /* ── Banner ──────────────────────────────────────────────────── */
@@ -3201,6 +3201,7 @@ h2 {
   display: flex;
   align-items: center;
   min-height: 165px;
+  font-size: 90%;
 }
 
 .catalogo-banner-left {
@@ -3478,9 +3479,9 @@ h2 {
   border-color: var(--primary);
 }
 
-/* 3 tarjetas horizontales que llenan el ancho exacto */
+/* 4 tarjetas horizontales que llenan el ancho exacto */
 .featured-card {
-  flex: 0 0 calc(33.333% - 6px);
+  flex: 0 0 calc(25% - 6px);
   background: rgba(248, 250, 255, 0.9);
   border: 1px solid #e8edf5;
   border-radius: 10px;
