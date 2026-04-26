@@ -60,7 +60,7 @@ export default function CatalogoPublico() {
   }, [catalogo, busqueda, categoria, sortBy])
 
   const paginated = paginate(filtrado, page, pageSize)
-  const destacados = useMemo(() => catalogo.filter(p => p.imagen_url).slice(0, 4), [catalogo])
+  const destacados = useMemo(() => catalogo.filter(p => p.imagen_url).slice(0, 3), [catalogo])
 
   const aplicar = () => { setBusqueda(inputVal); setPage(1) }
 
@@ -95,7 +95,7 @@ export default function CatalogoPublico() {
   ]
 
   return (
-    <main className="container">
+    <main className="container catalogo-page">
 
       {/* ── BANNER ─────────────────────────────────────────────── */}
       <section className="catalogo-banner">
