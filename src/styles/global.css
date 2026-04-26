@@ -2131,6 +2131,58 @@ h2 {
   font-weight: 600;
 }
 
+.login-subtitle {
+  text-align: center;
+  font-size: 0.84rem;
+  color: #6a7d9c;
+  margin: -8px 0 20px;
+  line-height: 1.5;
+}
+
+.login-msg {
+  padding: 10px 14px;
+  border-radius: 9px;
+  font-size: 0.84rem;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+.login-msg-error { background: #fde2e1; color: #b42318; border: 1px solid #fbb9b6; }
+.login-msg-info  { background: #EBF5FB; color: #0C447C; border: 1px solid #BEE3F8; }
+
+.login-form .otp-codigo-input {
+  text-align: center !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 14px !important;
+  color: #0C2D48 !important;
+  padding: 16px !important;
+}
+
+.otp-timer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #94a3b8;
+  margin-top: 12px;
+}
+.otp-timer span { color: #E67E22; font-weight: 700; }
+.otp-timer-expired { color: #E74C3C !important; font-weight: 700; }
+
+.login-back-btn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: none;
+  color: #9aaabf;
+  cursor: pointer;
+  font-size: 0.82rem;
+  text-align: center;
+  margin-top: 12px;
+  padding: 4px;
+  font-family: inherit;
+  transition: color .18s;
+}
+.login-back-btn:hover { color: #4a6fa5; }
+
 /* ═══════════════════════════════════════════
    LOGIN ADMIN (dark navy)
 ═══════════════════════════════════════════ */
