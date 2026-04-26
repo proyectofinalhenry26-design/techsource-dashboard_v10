@@ -3214,9 +3214,9 @@ h2 {
   position: relative;
   z-index: 1;
   /* 55% del banner: los filtros/buscador no llegan a la zona de la imagen */
-  width: 55%;
-  max-width: 55%;
-  flex: 0 0 55%;
+  width: 52%;
+  max-width: 52%;
+  flex: 0 0 52%;
   min-width: 0;
   /* overflow: hidden permite que .catalogo-pills haga scroll interno sin desbordarse */
   overflow: hidden;
