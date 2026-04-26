@@ -395,7 +395,8 @@ body::before {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  background: linear-gradient(135deg, #1a3461, #2f6fed);
+  background: linear-gradient(135deg, rgba(26,52,97,0.7), rgba(47,111,237,0.5)),
+              url('/banner-catalogo.png') center/cover no-repeat;
   border-radius: 16px;
   padding: 22px 28px;
   margin-bottom: 14px;
