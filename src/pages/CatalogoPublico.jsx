@@ -60,7 +60,7 @@ export default function CatalogoPublico() {
   }, [catalogo, busqueda, categoria, sortBy])
 
   const paginated = paginate(filtrado, page, pageSize)
-  const destacados = useMemo(() => catalogo.filter(p => p.imagen_url).slice(0, 8), [catalogo])
+  const destacados = useMemo(() => catalogo.filter(p => p.imagen_url).slice(0, 4), [catalogo])
 
   const aplicar = () => { setBusqueda(inputVal); setPage(1) }
 
@@ -234,10 +234,12 @@ export default function CatalogoPublico() {
                   onClick={() => { setSeleccionado(p); setImgError(false) }}>
                   <img src={p.imagen_url} alt={p.nombre} className="featured-card-img"
                     onError={e => { e.target.style.display = 'none' }} />
-                  <span className="badge badge-blue featured-card-badge">{p.categoria}</span>
-                  <p className="featured-card-name">{p.nombre}</p>
-                  <p className="featured-card-sku">{p.sku}</p>
-                  <p className="featured-card-price">USD {p.precio_venta?.toFixed(0)}</p>
+                  <div className="featured-card-body">
+                    <span className="badge badge-blue featured-card-badge">{p.categoria}</span>
+                    <p className="featured-card-name">{p.nombre}</p>
+                    <p className="featured-card-sku">{p.sku}</p>
+                    <p className="featured-card-price">USD {p.precio_venta?.toFixed(0)}</p>
+                  </div>
                 </div>
               ))}
             </div>
