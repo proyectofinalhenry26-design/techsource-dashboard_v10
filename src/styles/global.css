@@ -28,6 +28,7 @@ html {
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
+  font-size: 14px;
   color: var(--text);
   background:
     radial-gradient(circle at top center, rgba(255,255,255,0.94), rgba(244,247,252,0.96) 48%, rgba(238,243,251,0.98) 100%),
@@ -3212,10 +3213,13 @@ h2 {
 .catalogo-banner-left {
   position: relative;
   z-index: 1;
-  /* 55% del banner: garantiza que filtros y buscador no queden detrás de la imagen */
+  /* 55% del banner: los filtros/buscador no llegan a la zona de la imagen */
+  width: 55%;
+  max-width: 55%;
   flex: 0 0 55%;
   min-width: 0;
-  overflow: visible;
+  /* overflow: hidden permite que .catalogo-pills haga scroll interno sin desbordarse */
+  overflow: hidden;
 }
 
 /* Badge "Catálogo actualizado" */
