@@ -3182,23 +3182,20 @@ h2 {
    CATÁLOGO PÚBLICO — REDISEÑO
    ══════════════════════════════════════════════════════════════ */
 
-/* ── Banner ──────────────────────────────────────────────────── */
+/* ── Banner (dentro del container, mismo ancho que los demás bloques) ── */
 .catalogo-banner {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(to right, #0C2D48 50%, transparent 85%),
+    linear-gradient(to right, #0C2D48 55%, transparent 85%),
     url('/banner-catalogo.png') right center / contain no-repeat,
     #0C2D48;
-  border-radius: 0;
-  padding: 26px 0 20px;
-  margin-bottom: 14px;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  width: 100vw;
+  border-radius: 18px;
+  padding: 26px 36px 22px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
-  min-height: 200px;
+  min-height: 195px;
 }
 
 .catalogo-banner-left {
@@ -3206,21 +3203,19 @@ h2 {
   z-index: 1;
   flex: 1;
   max-width: 560px;
-  /* aligns text with the container's left edge + inner padding */
-  padding-left: calc(50vw - 50% + 32px);
-  padding-right: 24px;
 }
 
+/* Badge "Catálogo actualizado" */
 .catalogo-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 7px;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 999px;
   padding: 4px 12px;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 600;
   margin-bottom: 10px;
 }
@@ -3235,27 +3230,27 @@ h2 {
 }
 
 .catalogo-banner-title {
-  margin: 0 0 6px;
-  font-size: clamp(1.7rem, 2.8vw, 2.4rem);
+  margin: 0 0 5px;
+  font-size: clamp(1.4rem, 2.2vw, 1.9rem);
   font-weight: 800;
   color: #ffffff;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.03em;
 }
 
 .catalogo-banner-subtitle {
-  margin: 0 0 18px;
-  color: rgba(255, 255, 255, 0.62);
-  font-size: 0.9rem;
+  margin: 0 0 16px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.87rem;
   line-height: 1.5;
 }
 
-/* Search dentro del banner */
+/* Buscador (fondo blanco dentro del banner oscuro) */
 .catalogo-search-row {
   display: flex;
-  gap: 10px;
-  margin-bottom: 16px;
-  max-width: 500px;
+  gap: 8px;
+  margin-bottom: 14px;
+  max-width: 480px;
 }
 
 .catalogo-search-wrap {
@@ -3267,68 +3262,66 @@ h2 {
 
 .catalogo-search-icon-svg {
   position: absolute;
-  left: 14px;
-  width: 16px;
-  height: 16px;
-  color: rgba(255, 255, 255, 0.45);
+  left: 13px;
+  width: 15px;
+  height: 15px;
+  color: #94a3b8;
   pointer-events: none;
 }
 
 .catalogo-search-input {
   width: 100%;
-  padding: 13px 14px 13px 42px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+  padding: 11px 14px 11px 38px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #ffffff;
   font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  color: #ffffff;
+  font-size: 0.88rem;
+  color: #1d315d;
   outline: none;
-  transition: border-color 0.2s, background 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .catalogo-search-input::placeholder {
-  color: rgba(255, 255, 255, 0.4);
+  color: #94a3b8;
 }
 
 .catalogo-search-input:focus {
-  border-color: rgba(255, 255, 255, 0.38);
-  background: rgba(255, 255, 255, 0.14);
+  border-color: #8fb3ff;
+  box-shadow: 0 0 0 3px rgba(47, 111, 237, 0.1);
 }
 
 .catalogo-search-btn {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 13px 22px;
+  gap: 6px;
+  padding: 11px 20px;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   background: linear-gradient(135deg, #2f6fed, #1e52c8);
   color: white;
   font-weight: 700;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   cursor: pointer;
   white-space: nowrap;
   font-family: 'Inter', sans-serif;
   transition: transform 0.15s, box-shadow 0.15s;
-  box-shadow: 0 8px 20px rgba(47, 111, 237, 0.3);
+  box-shadow: 0 6px 16px rgba(47, 111, 237, 0.3);
 }
 
 .catalogo-search-btn:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(47, 111, 237, 0.4);
+  box-shadow: 0 8px 20px rgba(47, 111, 237, 0.4);
 }
 
-/* Pills de categoría dentro del banner */
+/* Pills de categoría (fondo blanco, texto oscuro, una sola línea) */
 .catalogo-pills {
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
+  gap: 7px;
   overflow-x: auto;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  padding-bottom: 2px;
 }
 
 .catalogo-pills::-webkit-scrollbar {
@@ -3339,11 +3332,11 @@ h2 {
   padding: 6px 14px;
   white-space: nowrap;
   flex-shrink: 0;
-  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
-  background: transparent;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.82rem;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1d315d;
+  font-size: 0.8rem;
   font-weight: 600;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
@@ -3351,18 +3344,17 @@ h2 {
 }
 
 .catalogo-pill:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.45);
-  color: #ffffff;
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 .catalogo-pill.active {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.65);
+  background: #0C2D48;
+  border-color: #0C2D48;
   color: #ffffff;
 }
 
-/* ── Stats grid ───────────────────────────────────────────────── */
+/* ── Stats grid (mismo ancho que banner y tabla) ──────────────── */
 .catalogo-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -3371,25 +3363,25 @@ h2 {
 }
 
 .catalogo-stat-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   border: 1px solid rgba(223, 231, 243, 0.96);
   border-radius: 14px;
   padding: 12px 14px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  box-shadow: 0 4px 12px rgba(28, 54, 99, 0.06);
+  gap: 11px;
+  box-shadow: 0 3px 10px rgba(28, 54, 99, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .catalogo-stat-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(28, 54, 99, 0.1);
+  box-shadow: 0 6px 18px rgba(28, 54, 99, 0.09);
 }
 
 .catalogo-stat-icon {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 10px;
   background: rgba(47, 111, 237, 0.1);
   color: #2f6fed;
@@ -3401,28 +3393,28 @@ h2 {
 
 .catalogo-stat-label {
   margin: 0 0 1px;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: #6b7c98;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.03em;
+  letter-spacing: 0.04em;
 }
 
 .catalogo-stat-value {
   margin: 0 0 1px;
-  font-size: 1.45rem;
+  font-size: 1.35rem;
   font-weight: 800;
   color: #1d315d;
   line-height: 1.1;
 }
 
 .catalogo-stat-date {
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 .catalogo-stat-sub {
   margin: 0;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   color: #94a3b8;
 }
 
@@ -3434,16 +3426,16 @@ h2 {
 .featured-scroll-wrap {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
 .featured-scroll {
   flex: 1;
   display: flex;
-  gap: 12px;
+  gap: 10px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 2px 2px 6px;
+  padding: 2px 1px 4px;
   scrollbar-width: none;
 }
 
@@ -3453,13 +3445,13 @@ h2 {
 
 .featured-arrow {
   flex-shrink: 0;
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   border-radius: 50%;
   border: 1px solid #d9e3f0;
   background: white;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #41577d;
   display: flex;
   align-items: center;
@@ -3474,20 +3466,20 @@ h2 {
   border-color: var(--primary);
 }
 
-/* Tarjeta horizontal: imagen izquierda + texto derecha */
+/* Tarjeta horizontal: imagen izquierda, texto derecha */
 .featured-card {
-  flex: 0 0 calc(25% - 9px);
-  background: rgba(248, 250, 255, 0.85);
+  flex: 0 0 calc(25% - 8px);
+  background: rgba(248, 250, 255, 0.9);
   border: 1px solid #e8edf5;
   border-radius: 12px;
-  padding: 12px;
+  padding: 10px 12px;
   cursor: pointer;
   scroll-snap-align: start;
   transition: transform 0.18s, box-shadow 0.18s;
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .featured-card:hover {
@@ -3496,13 +3488,13 @@ h2 {
 }
 
 .featured-card-img {
-  width: 72px;
-  height: 72px;
+  width: 64px;
+  height: 64px;
   flex-shrink: 0;
   object-fit: contain;
   border-radius: 8px;
   background: white;
-  padding: 4px;
+  padding: 3px;
 }
 
 .featured-card-body {
@@ -3511,15 +3503,15 @@ h2 {
 }
 
 .featured-card-badge {
-  font-size: 0.68rem;
-  padding: 2px 8px;
-  margin-bottom: 5px;
+  font-size: 0.66rem;
+  padding: 2px 7px;
+  margin-bottom: 4px;
   display: inline-block;
 }
 
 .featured-card-name {
-  margin: 4px 0 2px;
-  font-size: 0.82rem;
+  margin: 3px 0 2px;
+  font-size: 0.8rem;
   font-weight: 700;
   color: #1d315d;
   line-height: 1.3;
@@ -3531,14 +3523,14 @@ h2 {
 }
 
 .featured-card-sku {
-  margin: 0 0 4px;
-  font-size: 0.7rem;
+  margin: 0 0 3px;
+  font-size: 0.68rem;
   color: #94a3b8;
 }
 
 .featured-card-price {
   margin: 0;
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   font-weight: 800;
   color: var(--primary);
 }
@@ -3548,27 +3540,27 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 14px;
+  margin-bottom: 12px;
   flex-wrap: wrap;
   gap: 10px;
 }
 
 .catalogo-table-actions {
   display: flex;
-  gap: 10px;
+  gap: 8px;
   align-items: center;
 }
 
 .btn-export {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 16px;
+  gap: 6px;
+  padding: 8px 14px;
   border: 1px solid #d9e3f0;
   border-radius: 10px;
   background: white;
   color: #41577d;
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 600;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
@@ -3582,8 +3574,8 @@ h2 {
 
 .select-sort {
   width: auto !important;
-  padding: 9px 14px !important;
-  font-size: 0.86rem !important;
+  padding: 8px 12px !important;
+  font-size: 0.84rem !important;
   cursor: pointer;
 }
 
@@ -3594,10 +3586,10 @@ h2 {
 }
 
 .producto-thumb {
-  width: 34px;
-  height: 34px;
+  width: 32px;
+  height: 32px;
   object-fit: contain;
-  border-radius: 7px;
+  border-radius: 6px;
   background: #f4f7fc;
   padding: 2px;
   flex-shrink: 0;
@@ -3605,12 +3597,12 @@ h2 {
 
 .btn-cta-table {
   display: inline-block;
-  padding: 8px 14px;
-  border-radius: 10px;
+  padding: 7px 13px;
+  border-radius: 9px;
   background: linear-gradient(135deg, #1f5fe0, #2f80ed);
   color: white;
   font-weight: 700;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   text-decoration: none;
   white-space: nowrap;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -3625,19 +3617,12 @@ h2 {
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .catalogo-banner {
-    background:
-      linear-gradient(to right, #0C2D48 60%, transparent 95%),
-      url('/banner-catalogo.png') right center / contain no-repeat,
-      #0C2D48;
+    padding: 22px 24px 20px;
     min-height: unset;
   }
 
-  .catalogo-banner-left {
-    padding-left: calc(50vw - 50% + 20px);
-  }
-
   .catalogo-banner-title {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
   }
 
   .catalogo-stats {
@@ -3645,22 +3630,21 @@ h2 {
   }
 
   .featured-card {
-    flex: 0 0 calc(50% - 6px);
+    flex: 0 0 calc(50% - 5px);
   }
 }
 
 @media (max-width: 640px) {
   .catalogo-banner {
-    background: #0C2D48;
-  }
-
-  .catalogo-banner-left {
-    padding-left: 18px;
-    padding-right: 18px;
+    background:
+      linear-gradient(to bottom, #0C2D48 60%, rgba(12, 45, 72, 0.92)),
+      url('/banner-catalogo.png') center bottom / cover no-repeat,
+      #0C2D48;
+    padding: 20px 18px 18px;
   }
 
   .catalogo-banner-title {
-    font-size: 1.4rem;
+    font-size: 1.35rem;
   }
 
   .catalogo-search-row {
@@ -3673,7 +3657,7 @@ h2 {
   }
 
   .featured-card {
-    flex: 0 0 240px;
+    flex: 0 0 220px;
   }
 
   .catalogo-table-header {
