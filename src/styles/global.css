@@ -3213,12 +3213,10 @@ h2 {
 .catalogo-banner-left {
   position: relative;
   z-index: 1;
-  /* 55% del banner: los filtros/buscador no llegan a la zona de la imagen */
-  width: 52%;
-  max-width: 52%;
-  flex: 0 0 52%;
+  width: 72%;
+  max-width: 72%;
+  flex: 0 0 72%;
   min-width: 0;
-  /* overflow: hidden permite que .catalogo-pills haga scroll interno sin desbordarse */
   overflow: hidden;
 }
 
@@ -3331,11 +3329,11 @@ h2 {
   box-shadow: 0 8px 20px rgba(47, 111, 237, 0.4);
 }
 
-/* Pills: una sola línea con scroll invisible */
+/* Pills: una sola línea — todas visibles sin scroll a pantallas desktop normales */
 .catalogo-pills {
   display: flex;
   flex-wrap: nowrap;
-  gap: 7px;
+  gap: 5px;
   overflow-x: auto;
   overflow-y: visible;
   scrollbar-width: none;
@@ -3349,14 +3347,14 @@ h2 {
 }
 
 .catalogo-pill {
-  padding: 4px 10px;
+  padding: 3px 9px;
   white-space: nowrap;
   flex-shrink: 0;
   border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #1d315d;
-  font-size: 0.69rem;
+  font-size: 0.66rem;
   font-weight: 600;
   cursor: pointer;
   font-family: 'Inter', sans-serif;
@@ -3652,6 +3650,12 @@ h2 {
     min-height: unset;
   }
 
+  .catalogo-banner-left {
+    width: 82%;
+    max-width: 82%;
+    flex: 0 0 82%;
+  }
+
   .catalogo-banner-title {
     font-size: 1.35rem;
   }
@@ -3673,6 +3677,16 @@ h2 {
   .catalogo-banner {
     background: #0C2D48;
     padding: 16px 16px 14px;
+  }
+
+  .catalogo-banner-left {
+    width: 100%;
+    max-width: 100%;
+    flex: 0 0 100%;
+  }
+
+  .catalogo-pills {
+    flex-wrap: wrap;
   }
 
   .catalogo-banner-title {
