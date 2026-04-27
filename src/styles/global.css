@@ -3268,7 +3268,7 @@ h2 {
   overflow: clip;
   background:
     linear-gradient(to right, #0C2D48 55%, transparent 85%),
-    url('/banner-catalogo.png') right center / contain no-repeat,
+    url('/banner-catalogo.png') center / cover no-repeat,
     #0C2D48;
   border-radius: 16px;
   padding: 20px 16px 18px 32px;

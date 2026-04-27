@@ -221,13 +221,8 @@ export default function CatalogoPublico() {
               </svg>
               Productos destacados
             </h2>
-            <button className="link-ver" onClick={() => { setCategoria(''); setPage(1) }}>
-              Ver todos →
-            </button>
           </div>
           <div className="featured-scroll-wrap">
-            <button className="featured-arrow"
-              onClick={() => featuredRef.current?.scrollBy({ left: -280, behavior: 'smooth' })}>‹</button>
             <div className="featured-scroll" ref={featuredRef}>
               {destacados.map(p => (
                 <div key={p.id} className="featured-card"
@@ -243,8 +238,6 @@ export default function CatalogoPublico() {
                 </div>
               ))}
             </div>
-            <button className="featured-arrow"
-              onClick={() => featuredRef.current?.scrollBy({ left: 280, behavior: 'smooth' })}>›</button>
           </div>
         </section>
       )}
